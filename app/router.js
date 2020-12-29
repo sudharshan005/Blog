@@ -7,4 +7,11 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
-});
+  this.route('register');
+  this.route('homepage');
+  this.route('newpost');
+  this.route('editpage');
+  this.route('loginpage');
+  this.route('adminpage');
+  this.route('userdetail')
+})
