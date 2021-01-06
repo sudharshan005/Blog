@@ -11,7 +11,7 @@
   background-size: 100% 100%;
   /* opacity:0.5; */
 }
-.fulldiv1{
+.fulldiv1,.fulldiv2{
   width: 1820px;
   height:930px;
   border: 1px solid rgba(0, 0, 0, 0.486);
@@ -22,6 +22,13 @@
   background-image: url(../assets/image/back1.jpg);
   /* background-size: 100% 100%; */
   /* opacity:0.5; */
+}
+.fulldiv2{
+  height:880px;
+}
+.fulldiv::-webkit-scrollbar{
+  display: none;
+
 }
 .topindex{
   width: 1820px;
@@ -76,6 +83,7 @@
   background-size: 100% 100%;
   border-radius: 50px;
 }
+
 .midleimage{
   width: 300px;
   height:300px;
@@ -502,16 +510,23 @@ left:1350px;
 .editbutton,.commentbutton{
   width: 50px;
   height:20px;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-left: 10px;
   line-height: 20px;
   font-size: 20px;
   text-align: center;
 }
+.editbutton{
+  position:absolute;
+  left:10px;
+  top: 2px;
+  font-size: 15px;
+}
 
 .commentbutton{
   position:absolute;
   left:360px;
+  top: 2px;
   font-size: 15px;
   /* text-align: center; */
   
@@ -556,7 +571,7 @@ left:1350px;
  top:5px;
  line-height: 30px;
  /* left:0px; */
- /* background-color: floralwhite; */
+ background-color: floralwhite;
 }
 /* .profileListBox{
  width: 200px;
