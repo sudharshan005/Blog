@@ -6,14 +6,20 @@
                  <div class="image5"></div>
  </div>
 <div class="writebox">
-        
-   # ***Tittle***
+  <div class="newpostTitle"> 
+
+   ## ***Tittle***
+  </div>
   <Textarea class="textArea" @value={{value1}} placeholder="Enter a post Tittle"></Textarea>
+<div class="newpostTitle"> 
 
-   # ***Subject***
+   ## ***Subject***
+  </div>
  <Textarea class="textArea" @value={{value2}} placeholder="Enter a post Subject"></Textarea>
+<div class="newpostTitle">
 
-   # ***Story***
+   ## ***Story***
+   </div> 
 <Textarea class="textAreaStory" @value={{value3}} placeholder="Enter a post Story"></Textarea>
                <Input type="file" class="textImage"/>         
 </div>

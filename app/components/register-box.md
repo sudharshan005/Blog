@@ -1,5 +1,8 @@
  <div class="fulldiv1">
-    <h1 class="title">Register Page</h1>
+    <div class="title">
+
+# ***Register Page***
+ </div>
    <div class=" registerbox">
           <Input class="name" placeholder="Enter a email" type="text" @value={{value2}} />
         <Input class="name" placeholder="Enter a Name" type="text" @value={{value}} />

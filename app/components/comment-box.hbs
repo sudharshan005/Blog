@@ -7,35 +7,34 @@
                  <div class="image4"></div>
                  <div class="image5"></div>
          </div>
-    <div class="commentPlace">
-                  {{#each array as |array|}}
-                                <div>
-                                      <div class="commentmainbox">
-                                      <div class="CTbox">
-                                            <div class="userName">user:{{array.Name}}</div>
-                                             {{#if (eq CurrentUserName "Admin")}}   
-                                                 <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
+<div class="commentPlace">
+{{#each array as |array|}}
+<div>
+  <div class="commentmainbox">
+<div class="CTbox">
+       <div class="userName">
+       user:{{array.Name}}
+      </div>
+ {{#if (eq CurrentUserName "Admin")}}   
+      <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
                                  
-                                                {{else}}  
-                                                      {{#if (eq array.Name CurrentUserName)}} 
-                                                         <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
-                                                      {{/if}} 
-                                             {{/if}}   
+ {{else}}  
+    {{#if (eq array.Name CurrentUserName)}} 
+       <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
+    {{/if}} 
+ {{/if}}   
                                             
-                                      </div>
-                                     <div class="commentboxs">{{array.value}}</div>
-                                     </div>
-                                     
-                                </div>
-                               
-                 {{/each}}
+ </div>
+<div class="commentboxs">{{array.value}}</div>
+</div>                         
+   </div>
+{{/each}}
     </div>
    <Input class="commentTypeArea" placeholder="Type a Comment" type="text" @value={{value1}}/>
    <button class="Cdonebutton" onclick={{action "commentStore"}}>Done</button>
    <button class="backbutton3" onclick={{action "back"}}>Back</button>
 </div>
 {{/if}}
-
 {{#if boolean}}  
   {{home-page}}
 {{/if}}

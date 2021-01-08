@@ -1,5 +1,8 @@
  <div class="fulldiv1">
-    <h1 class="title">Login Page</h1>
+    <div class="title">
+    
+# ***Login Page***
+</div>
    <div class=" Aregisterbox">
         <Input class="name" placeholder="Enter a Name" type="text" @value={{value}} />
         <Input class="age" placeholder="password" type="password" @value={{value1}}/>

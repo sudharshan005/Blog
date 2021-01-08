@@ -27,13 +27,21 @@
          {{/if}}   
  </div>
  <div class="postContent">
+<div class="textTittles">
 
  ***Tittle***
+ </div>
           <div class="postHeading">**{{array.postTittle}}**</div>
          <div class="postImage"></div>
+<div class="textTittles"> 
+
  ***Subject***
+ </div>
          <div class="postsubject">{{array.postSubject}}</div>
+<div class="textTittles">  
+       
 ***Story***
+</div>
           <div class="poststory"><p>{{array.postStory}}</p></div>
 </div>
   <div class="bottombox">
