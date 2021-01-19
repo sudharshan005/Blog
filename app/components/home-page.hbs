@@ -1,3 +1,4 @@
+ 
  {{#if valuepass1}}
  
  <div class="fulldiv">
@@ -9,14 +10,15 @@
                  <div class="image5"></div>
          </div>
 
-   <div class="profileBox">userName : **{{this.CurrentUserName}}**</div>
+   <div class="profileBox">userName :{{this.CurrentUserName}}</div>
+   {{!-- {{this.CurrentUserName}} --}}
     {{!-- <div class="profilephoto"><img src={{profileBox}}  width="200" height="200"></div> --}}
     <img class="profilephoto" src="{{this.photosrc}}">
     <div class="postbox" >
       {{#each array2 as |array|}}
   <div class="posts"   >
     <div class="postTitle">
-         <div class="profileNamebox">**{{array.userName}}**</div>
+         <div class="profileNamebox">{{array.userName}}</div>
          {{#if (eq CurrentUserName "Admin")}}   
            <div class="deleteIcon" id={{array.id}}  onclick={{action "deletepost" }}></div>
                                  
@@ -27,22 +29,14 @@
          {{/if}}   
  </div>
  <div class="postContent">
-<div class="textTittles">
-
- ***Tittle***
- </div>
-          <div class="postHeading">**{{array.postTittle}}**</div>
+<div class="textTittles">Tittle</div>
+          <div class="postHeading">{{{array.postTittle}}}</div>
          <div class="postImage"></div>
-<div class="textTittles"> 
-
- ***Subject***
- </div>
-         <div class="postsubject">{{array.postSubject}}</div>
-<div class="textTittles">  
-       
-***Story***
-</div>
-          <div class="poststory"><p>{{array.postStory}}</p></div>
+<div class="textTittles"> Subject</div>
+         <div class="postsubject"  >{{{array.postSubject}}}</div>
+<div class="textTittles"> Story</div>
+          <div  class="poststory" > {{{array.postStory}}} </div>
+          {{!-- dangerouslySetInnerHTML={{__html:array.postStory}} --}}
 </div>
   <div class="bottombox">
    {{#if (eq CurrentUserName "Admin")}}  

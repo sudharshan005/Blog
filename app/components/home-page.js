@@ -1,4 +1,6 @@
 import Component from '@ember/component';
+// import React,{ Component } from "react";
+import { get } from '@ember/object';
  import { action } from '@ember/object'
  import { inject as service } from '@ember/service';
 export default Component.extend({
@@ -26,15 +28,19 @@ export default Component.extend({
        
         var userPost=JSON.parse(localStorage.getItem("userPost")); 
         if(userPost!=null){
-            var array1=[];      
+            var array1=[];   
                 const keys = Object.keys(userPost)
                 console.log(keys)
                 for (const key of keys) {
                     console.log(key)           
                 array1.push(userPost[key])            
-                }       
+                }      
+                
+                console.log(array1)               
         }   
-        this.array2=array1      
+        this.array2=array1 ; 
+        // console.log(array2.get(postStory))
+        
     },
     router: service(),
       @action

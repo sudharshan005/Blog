@@ -58,5 +58,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "marked": "^1.2.7"
   }
 }

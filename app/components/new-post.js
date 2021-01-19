@@ -1,5 +1,6 @@
-import Component from '@glimmer/component';
+import Component from '@glimmer/component';  
 import { action } from '@ember/object'
+import marked from "marked/lib/marked.esm.js";
 export default class NewPostComponent extends Component {
     i=1;
     @action
@@ -27,12 +28,13 @@ export default class NewPostComponent extends Component {
           }
        var array=[]
           var postDetails={
-            postTittle:this.value1,
-            postSubject:this.value2,
-            postStory:this.value3,
+            postTittle:marked(this.value1),
+            postSubject:marked(this.value2),
+            postStory:marked(this.value3),
             userName:CurrentUserName,
             id:this.i,
           }
+          console.log(marked(this.value3),typeof(marked(this.value3)))
           array.push(postDetails) 
           var exArray = JSON.parse(localStorage.getItem('userPost'));
           if(exArray==null){
