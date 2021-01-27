@@ -1,19 +1,20 @@
 import Component from '@ember/component';
- import { action } from '@ember/object'
+ import { action } from '@ember/object';
+ import marked from "marked/lib/marked.esm.js";
  import { inject as service } from '@ember/service';
 export default Component.extend({
     boolean:false,
     boolean1:true,
     @action
     editpost(){
-        console.log(this.get("id"))
+        // console.log(this.get("id"))
 
-        var replaceValue=this.postvalue;
+        // var replaceValue=this.postvalue;
         var userPost=JSON.parse(localStorage.getItem("userPost"));
         for (var i = 0; i < userPost.length; i++){
          var obj = userPost[i];
             var objId = obj.id;
-            console.log(replaceValue)
+            // console.log(replaceValue)
             
             if(objId == this.get("id") ){
              

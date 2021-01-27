@@ -28,9 +28,9 @@ export default class NewPostComponent extends Component {
           }
        var array=[]
           var postDetails={
-            postTittle:marked(this.value1),
-            postSubject:marked(this.value2),
-            postStory:marked(this.value3),
+            postTittle:this.value1,
+            postSubject:this.value2,
+            postStory:this.value3,
             userName:CurrentUserName,
             id:this.i,
           }

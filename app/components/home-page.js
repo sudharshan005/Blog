@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 // import React,{ Component } from "react";
+// import { htmlSafe } from '@ember/template';
 import { get } from '@ember/object';
+import marked from "marked/lib/marked.esm.js";
  import { action } from '@ember/object'
  import { inject as service } from '@ember/service';
 export default Component.extend({
@@ -24,7 +26,7 @@ export default Component.extend({
         }
         this. CurrentUserName =name.name  
         this.photosrc=name.photosrc
-        console.log(this.CurrentUserName)
+        // console.log(this.template)
        
         var userPost=JSON.parse(localStorage.getItem("userPost")); 
         if(userPost!=null){
@@ -36,9 +38,24 @@ export default Component.extend({
                 array1.push(userPost[key])            
                 }      
                 
-                console.log(array1)               
+                console.log(array1)     
+                var array2=[]
+                for(var i=0;i<userPost.length;i++){
+                  // console.log(...userPost[i].value());
+                  console.log(typeof(marked(userPost[i].postStory)))
+                  var postStory=userPost[i].postStory.replace(/</g, '&lt;');
+                  var postDetails={
+                    postTittle:marked(userPost[i].postTittle),
+                    postSubject:marked(userPost[i].postSubject),
+                    userName:userPost[i].userName,
+                    id:userPost[i].id,
+                    postStory:  marked(postStory)
+                  }
+                  array2.push(postDetails)
+                }    
+               console.log(array2);  
         }   
-        this.array2=array1 ; 
+        this.array2=array2 ; 
         // console.log(array2.get(postStory))
         
     },
@@ -77,6 +94,7 @@ export default Component.extend({
             }
         }
       },
+
       router: service(),
       @action
       deletepost(){
