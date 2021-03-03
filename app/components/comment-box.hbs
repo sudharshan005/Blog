@@ -8,27 +8,31 @@
                  <div class="image5"></div>
          </div>
 <div class="commentPlace">
-{{#each array as |array|}}
+{{#if value2 }}
+{{#each comments as |postComment|}}
+   {{log "array"}}
+   {{log CurrentUserName}}
 <div>
   <div class="commentmainbox">
 <div class="CTbox">
        <div class="userName">
-       user:{{array.Name}}
-      </div>
- {{#if (eq CurrentUserName "Admin")}}   
-      <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
+          {{postComment.name}}
+      </div> 
+  {{#if (eq CurrentUserName "Admin")}}   
+      <div class="CdeleteIcon"  onclick={{action "delete" postComment}}></div>
                                  
  {{else}}  
-    {{#if (eq array.Name CurrentUserName)}} 
-       <div class="CdeleteIcon" id={{array.id}} onclick={{action "delete"}}></div>
+    {{#if (eq postComment.name CurrentUserName)}} 
+       <div class="CdeleteIcon"  onclick={{action "delete"  postComment}}></div>
     {{/if}} 
  {{/if}}   
                                             
  </div>
-<div class="commentboxs">{{array.value}}</div>
+<div class="commentboxs">{{postComment.comment}}</div>
 </div>                         
    </div>
 {{/each}}
+{{/if}}
     </div>
    <Input class="commentTypeArea" placeholder="Type a Comment" type="text" @value={{value1}}/>
    <button class="Cdonebutton" onclick={{action "commentStore"}}>Done</button>

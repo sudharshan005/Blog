@@ -6,6 +6,18 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase:{
+    apiKey: "AIzaSyA74NBqzTu7VU_YcaEmyExtxXMPUfB-WoM",
+    authDomain: "blog-project-865b3.firebaseapp.com",
+    projectId: "blog-project-865b3",
+    storageBucket: "blog-project-865b3.appspot.com",
+    messagingSenderId: "979194696674",
+    appId: "1:979194696674:web:fb12a167f251a6aafb9fbb",
+    measurementId: "G-2PLWJY91Q1"
+    },
+
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -46,6 +58,5 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
-
   return ENV;
 };

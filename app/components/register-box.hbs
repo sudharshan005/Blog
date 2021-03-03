@@ -9,8 +9,8 @@
             <option>female</option>
             <option>others</option>
          </select>
-    <Input type="file" class="profilepic"  @value={{valuephoto}}/>
-     <LinkTo @route="homepage" class="sbutton" onclick={{action "val"}} >Sumbit</LinkTo>
+    <Input type="file" class="profilepic"  @file={{valuephoto}}/>
+     <div  class="sbutton" onclick={{action "val"}} >Sumbit</div>
     <LinkTo @route="loginpage" class="backbutton1" >Back</LinkTo>
 </div>
 <div class="registerImage"></div>

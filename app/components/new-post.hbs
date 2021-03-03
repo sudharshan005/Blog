@@ -14,6 +14,6 @@
 <Textarea class="textAreaStory" @value={{value3}} placeholder="Enter a post Story"></Textarea>
                <Input type="file" class="textImage"/>         
 </div>
-         <LinkTo @route="homepage" class="dbutton" onclick={{action "valuepass"  }}>Done</LinkTo>
+         <div class="dbutton" onclick={{action "valuepass"  }}>Done</div>
           <LinkTo @route="homepage" class="backbutton4" >back</LinkTo>
-</div> 
+</div> {{log 'post call' model}}

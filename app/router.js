@@ -14,4 +14,6 @@ Router.map(function() {
   this.route('loginpage');
   this.route('adminpage');
   this.route('userdetail')
+  this.route('posts');
+  this.route('new-post');
 })
