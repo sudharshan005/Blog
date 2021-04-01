@@ -37,10 +37,10 @@ export default Component.extend({
                var exArray = JSON.parse(localStorage.getItem('userdetails'));
                var newArray = array.concat(exArray);
                localStorage.setItem('userdetails',JSON.stringify(newArray));
-               this.get('router').transitionTo('homepage')
-            }*/
+               this.get('router').transitionTo('homepage')*/
+            
             else{
             alert("wrong password");
             }
-    };
+    }
 })

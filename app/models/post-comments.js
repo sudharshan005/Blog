@@ -4,4 +4,7 @@ export default Model.extend ({
   name:DS.attr('string'),
   noId:DS.attr('string'),
   comment:DS.attr('string'),
+  userimg:DS.attr('string'),
+
+ 
 });

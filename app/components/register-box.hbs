@@ -1,21 +1,33 @@
  <div class="fulldiv1">
-    <div class="title">Register Page</div>
-   <div class=" registerbox">
-          <Input class="name" placeholder="Enter a email" type="text" @value={{value2}} />
+   <div class="regsidImagebox">
+     <h2 class="sentence">Discover the world’s top <br>Designers & Creatives.</h2>
+     <div class="regsidImage"></div>
+   </div>
+  <div class="registerRightBox">
+      <div class="title">Sign up to Dribbble</div>
+      <canvas id="tempimage" ></canvas>
+      <div id="tempimagediv" onclick={{action "profileboxfunction"}}>choose profile</div>
+      <div class=" registerbox">
+        <Input class="name" placeholder="Enter a email" type="text" @value={{value2}} />
         <Input class="name" placeholder="Enter a Name" type="text" @value={{value}} />
         <Input class="age" placeholder="password" type="password" @value={{value1}}/>
-         <select class="select" placeholder="select your gender">
-            <option>male</option>
-            <option>female</option>
-            <option>others</option>
-         </select>
-    <Input type="file" class="profilepic"  @file={{valuephoto}}/>
-     <div  class="sbutton" onclick={{action "val"}} >Sumbit</div>
-    <LinkTo @route="loginpage" class="backbutton1" >Back</LinkTo>
+        <input class="age" placeholder="confign password"  type="password"/>
+        <div  class="sbutton" onclick={{action "val"}} >Sumbit</div>
+        <LinkTo @route="loginpage" class="backbutton1" >Back</LinkTo>
+      </div>
+</div> 
+</div> 
+
+{{#if profileset}}
+<div class="profilepicedit">
+      <div class="registerImage" onclick={{action "move"}}></div>
+      <div id="thumbBox"></div>
+      <button class="crop"  onclick={{action "getDataURL"}} >crop</button>
+      <img id="scream" style="display:none;">
+      <input type="file" id="file-input" {{ on "change" image}}>
 </div>
-<div class="registerImage"></div>
+{{/if}}
   
 
-</div> 
 
 

@@ -7,18 +7,23 @@ export default Component.extend({
     boolean1:true,
     store:service('store'),
     firebaseApp: service (),
+    photosrc:null,
     @action
     editpost(){
         console.log(this.id)
         var id=this.id;
         // var replaceValue=this.postvalue;
+        if(this.photosrc==null){
+          this.photosrc=this.value4
+        }
       this.store.findRecord('post',id).then((post)=> {
 
-            console.log(post)
+             console.log(this.value4)
 
             post.postTittle = this.value1,
             post.postSubject=this.value2,
-            post.postStory=this.value3
+            post.postStory=this.value3,
+            post.postimg=this.photosrc,
 
             post.save().then(()=>{
                 this.set("boolean1", false);
@@ -46,6 +51,17 @@ export default Component.extend({
        this.set("boolean1", false);*/
 
     },
+
+    @action
+    image(){ 
+    var reader=new FileReader();
+    reader .readAsDataURL(event.target.files[0])
+
+   reader.addEventListener("load" ,()=>{
+     localStorage.setItem("postimgData", reader.result);
+     this.photosrc=reader.result;
+   })
+  },
     @action
     back(){
            this.set("boolean1", false);

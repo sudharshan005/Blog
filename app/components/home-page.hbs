@@ -1,20 +1,50 @@
- 
- {{#if valuepass4}}
+ {{#if homePage}}
  <div class="fulldiv">
          <div class="homeTittle">
-                 <div class="homeImage"></div>
-                 <input type="text" placeholder="Search" class="search">
+                <div class="homeImage"></div>
+                <div class="homesearchIteam">
+                  <Input type="text" placeholder="Search" @value={{searchpost}} class="searchbar"/>
+                  <div class="searchBut" ></div>
+                </div>
+                <div class="homeIcons">
                   <LinkTo @route="index" class="image3"></LinkTo>
-                 <div class="image4"></div>
-               <div class="image5"></div>
+                  <div class="image4"></div>
+                  <div class="image5"></div>
+                </div>  
          </div>
-   <div class="profileBox">userName :{{CurrentUserName}}</div>
-    <img class="profilephoto" src="{{this.photosrc}}">
-    <div class="postbox" >
-     
-{{#if valuepass3}}
+   <div class="profileBox">{{CurrentUserName}}</div>
+    <img class="profilephoto" src={{photosrc}}>
+   
+<div class="postbox" >    
+{{#if Allpost}}  
       {{#each posts as |post|}}
-  <div class="posts">
+
+      <div class="postsOutlook">
+        {{#if (eq CurrentUserName "Admin")}} 
+          <div class="moreOption" id={{post.postId}} onclick={{action "more"}}></div>
+          {{#if option }}
+            <div class="deletepostContent" onclick={{action "deletepost" post }}></div>
+            <div class="edit" onclick={{action "edit" post }}></div> 
+          {{/if}}
+        {{/if}}  
+
+        {{#if (eq post.userName CurrentUserName)}} 
+          <div class="moreOption" id={{post.postId}} onclick={{action "more"}}></div>
+          {{#if option }}
+            <div class="deletepostContent" onclick={{action "deletepost" post }}></div>
+            <div class="edit" onclick={{action "edit" post }}></div> 
+          {{/if}}
+        {{/if}}  
+          <img class="postOutImage" src={{post.postimg}}>
+          <img class="postOwnerImage" src={{post.profile}}>
+          <div class="postOwner">{{post.userName}}</div>
+          <div class="postOutcontent">
+            <div class="postOutTittle">{{post.postTittle}}</div>
+            <div class="postOutstory" id={{post.postId}} onclick={{action "viewPost" post}}>{{{post.postStory}}}</div>
+             <div class="postcomment"  id={{post.postId}} onclick={{action "comment" }}></div>
+          </div>
+      </div>
+  {{!-- <div class="posts">
     <div class="postTitle">
          <div class="profileNamebox">{{post.userName}}</div>
          {{#if (eq CurrentUserName "Admin")}}   
@@ -22,14 +52,14 @@
           {{else}}  
            {{#if (eq post.userName  CurrentUserName)}} 
           
-  <div class="deleteIcon" id={{post.postId}}  onclick={{action "deletepost" array }}></div>
+  <div class="deleteIcon" id={{post.postId}}  onclick={{action "deletepost" post }}></div>
             {{/if}} 
          {{/if}}   
  </div>
  <div class="postContent">
 <div class="textTittles">Tittle</div>
           <div class="postHeading">{{{post.postTittle}}}</div>
-         <div class="postImage"></div>
+          <img class="postImage" src={{post.postimg}} >
 <div class="textTittles"> Subject</div>
          <div class="postsubject"  >{{{post.postSubject}}}</div>
 <div class="textTittles"> Story</div>
@@ -45,7 +75,7 @@
   {{/if}}
      <div class="commentbutton"  id={{post.postId}} onclick={{action "comment" }}>comment</div>
 </div>
-</div>
+</div> --}}
    {{/each}}  
 {{/if}}           
     </div> 
@@ -54,14 +84,14 @@
      {{/if}}
      <LinkTo @route="newpost" class="pbutton"  >write a new post</LinkTo>
  </div>
-
 {{/if}}
-{{#if valuepass}}
-    {{log "valuepass"}}
-   {{edit-page id=id  value1=postvalue1 value2=postvalue2 value3=postvalue3}}
-     {{/if}}
-
- {{#if valuepass2}}
-        {{log "valuepass"}}
-         {{comment-box parentid=parentid UserName=CurrentUserName}}
-     {{/if}}    
+{{#if editPage}}
+   
+   {{edit-page id=id  value1=postvalue1 value2=postvalue2 value3=postvalue3 value4=postimgvalue}}
+{{/if}}
+ {{#if commentPage}}
+   {{comment-box parentid=parentid UserName=CurrentUserName}}
+  {{/if}}    
+{{#if viewPostpage}}
+      {{view-post Tittle=postvalue1 subtittle=postvalue2 Story=postvalue3 imgsrc=postimgvalue profile=postOwner UserName=postownername}}
+{{/if}}    

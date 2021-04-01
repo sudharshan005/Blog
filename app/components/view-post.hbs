@@ -1,0 +1,29 @@
+ {{#if viewpostpage}}
+ <div class="fulldiv">
+         <div class="homeTittle">
+                 <div class="homeImage"></div>
+                  <div class="homesearchIteam">
+                        <input type="text" placeholder="Search" class="searchbar">
+                        <div class="searchBut" ></div>
+                 </div>
+                 <div class="homeIcons">
+                        <LinkTo @route="index" class="image3"></LinkTo>
+                        <div class="image4"></div>
+                        <div class="image5"></div>
+                </div>        
+         </div>
+        <img class="viewPostProfile" src={{profile}}>
+        <div class="viewPostOwner">{{UserName}}</div>
+     
+        <div class="viewPostTittle">{{Tittle}}</div>
+         <img class="viewPostImage" src={{imgsrc}}>
+        <div class="viewPostSubTittle">{{subtittle}}</div>
+        <div class="viewPostStory">{{{Story}}}</div>
+
+        <button class="viewtohome" onclick={{action "pagechange" }}>BACK</button>
+
+</div>
+{{/if}}
+{{#if homepage}}
+   {{home-page}}
+{{/if}}

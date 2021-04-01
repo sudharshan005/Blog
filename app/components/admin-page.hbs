@@ -1,4 +1,4 @@
- <div class="fulldiv1">
+ {{!-- <div class="fulldiv1">
     <div class="title">Admin Page</div>
    <div class=" Adminregisterbox">
         <Input class="name" placeholder="Enter a Name" type="text" @value={{value}} />
@@ -8,4 +8,24 @@
 </div>
 <div class="registerImage"></div>
   
+</div>  --}}
+
+
+<div class="fulldiv1">
+   <div class="regsidImagebox">
+      <h2 class="sentence">Discover the world’s top <br>Designers & Creatives.</h2>
+      <div class="regsidImage"></div>
+   </div>
+   <div class="adminRightBox">
+      <div class="logintitle">Admin Page</div>
+      <div class=" Aregisterbox">
+         <Input class="loginname" placeholder="Enter a Name" type="text" @value={{value}} />
+         <Input class="loginpassword" placeholder="password" type="password" @value={{value1}}/>
+            <div class="or">----------- or -----------</div>
+         <LinkTo @route="register" class="button">Create a new account</LinkTo> 
+         <button class="loginsumitbutton"   onclick={{action "Admin"}} >Sumbit</button>
+         <LinkTo @route="index" class="loginbackbutton" >Back</LinkTo>
+      </div>
+   </div>   
+
 </div> 

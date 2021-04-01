@@ -1,43 +1,49 @@
 {{#if boolean1}}
 <div class="fulldiv">
-       <div class="homeTittle">
-                 <div class="homeImage"></div>
-                 {{!-- <input type="text" placeholder="Search" class="search"> --}}
-                 <LinkTo @route="index" class="image3"></LinkTo>
-                 <div class="image4"></div>
-                 <div class="image5"></div>
+         <div class="homeTittle">
+                <div class="homeImage"></div>
+                 <div class="homesearchIteam">
+                <input type="text" placeholder="Search" class="searchbar">
+                 <div class="searchBut" ></div>
+                </div>
+                <div class="homeIcons">
+                  <LinkTo @route="index" class="image3"></LinkTo>
+                  <div class="image4"></div>
+                  <div class="image5"></div>
+                </div>  
          </div>
-<div class="commentPlace">
-{{#if value2 }}
-{{#each comments as |postComment|}}
-   {{log "array"}}
-   {{log CurrentUserName}}
-<div>
-  <div class="commentmainbox">
-<div class="CTbox">
-       <div class="userName">
-          {{postComment.name}}
-      </div> 
-  {{#if (eq CurrentUserName "Admin")}}   
-      <div class="CdeleteIcon"  onclick={{action "delete" postComment}}></div>
-                                 
- {{else}}  
-    {{#if (eq postComment.name CurrentUserName)}} 
-       <div class="CdeleteIcon"  onclick={{action "delete"  postComment}}></div>
-    {{/if}} 
- {{/if}}   
-                                            
- </div>
-<div class="commentboxs">{{postComment.comment}}</div>
-</div>                         
-   </div>
-{{/each}}
-{{/if}}
-    </div>
+ 
+    
+      {{#if value2 }}
+      <div class="commentPlace">
+         {{#each comments as |postComment|}} 
+          <div class="commentPlace">   
+       
+         <img  class="commentmainbox" src={{postComment.img}}>
+        
+               
+                  <div class="userName">
+                     {{postComment.name}}
+                  </div> 
+               {{#if (eq CurrentUserName "Admin")}}   
+                  <div class="CdeleteIcon"  onclick={{action "delete" postComment}}></div>
+                                             
+                  {{else}}  
+                  {{#if (eq postComment.name CurrentUserName)}} 
+                     <div class="CdeleteIcon"  onclick={{action "delete"  postComment}}></div>
+                  {{/if}} 
+               {{/if}}                                          
+               
+               <div class="commentboxs">{{postComment.comment}}</div>                        
+          </div>    
+         {{/each}}
+      </div>
+      {{/if}}
+   
    <Input class="commentTypeArea" placeholder="Type a Comment" type="text" @value={{value1}}/>
-   <button class="Cdonebutton" onclick={{action "commentStore"}}>Done</button>
+   <div class="Cdonebutton" onclick={{action "commentStore"}}></div>
    <button class="backbutton3" onclick={{action "back"}}>Back</button>
-</div>
+</div> 
 {{/if}}
 {{#if boolean}}  
   {{home-page}}

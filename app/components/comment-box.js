@@ -1,16 +1,17 @@
-import Component from '@ember/component';
- import { action } from '@ember/object'
-import postComments from '../models/post-comments';
-import{ inject as service } from '@ember/service';
-export default Component.extend({
+ import Component from '@ember/component';
+ import { action } from '@ember/object';
+ import{ inject as service } from '@ember/service';
+ export default Component.extend({
     comments:[],
     boolean1:true,
     boolean:false,
     value2:false,
     CurrentUserName:null,
     store:service('store'),
-        init(){     
-            this._super(...arguments);
+        init(){   
+           this.set("boolean1",true) 
+           this._super(...arguments);
+           this. comments=null;
             var array2=[]
             this.store.findAll("postComments").then((postcomment)=>{
                 console.log(postcomment.content.length)
@@ -20,117 +21,73 @@ export default Component.extend({
                         array2.push({
                             comment:obj.__recordData.__data.comment,
                             name:obj.__recordData.__data.name,
-                            id:obj.id
+                            id:obj.id,
+                            img:obj.__recordData.__data.userimg
                             
                         });
-                    }    
-                });  
-                this.comments=array2   
+                        console.log(obj.__recordData.__userimg)
+                    }  
+          
+                })
+                this.comments=array2 
+                console.log(this.comments)  
                 this.CurrentUserName=this.UserName;
-                console.log(this.comments)
-                this.set("value2",true);     
-            });
-        //     var array=JSON.parse(localStorage.getItem(this.parentid))
-
-        //     this.set("array",array)
-        //     var userdetail=JSON.parse(localStorage.getItem("userdetails"));
-        //    const keys = Object.keys(userdetail)
-        //    for (const key of keys) {
-        //     // console.log(key+","+keys)
-        //   var  name= userdetail[key]
-        //   break;
-        // }
-        // this. CurrentUserName =name.name 
+                console.log(this.comments)  
+                this.set("value2",true)
+                
+                   
+            })
         },
     @action
     commentStore(){
-            if(this.value1!="" ){
-                console.log(this.value)
+        this.set("value2",false)
+        var photo;
+        console.log(this.value)
+            if(this.value1!=undefined){
+                this.store.findAll('registeruserdetails').then((registerdetail)=>{
+                    for(var j=0;j<registerdetail.content.length;j++){
+                      if(registerdetail.content[j].__recordData.__data.name == this.CurrentUserName){
+                          console.log(this.CurrentUserName+" , "+registerdetail.content[j].__recordData.__data.name)
+                             photo=registerdetail.content[j].__recordData.__data.photourl;
+                            break;
+                      }
+                    }
+            }).then(()=>{
                 var comment=this.store.createRecord("postComments",{
                     name:this.UserName,
                     noId:this.parentid,
-                    comment:this.value1
+                    comment:this.value1,
+                    userimg:photo
                 });
                 comment.save().then(()=>{
-                    this.set("boolean1", false);
-                    this.set("boolean", true);
-                    // this.set("value2",false); 
+                    // this.set("boolean1", false);
+                    // this.set("boolean", true);
+                    this.init()
+                   
                 })
+            })
 
             }
-            else{
-                // this.set("value2",false); 
+         else{
                 this.set("boolean1", false);
                 this.set("boolean", true);
-            }
-    
-    //     var array=[];   
-    //    var Carray =JSON.parse(localStorage.getItem(this.get("parentid")));
-    //         if(Carray==null){
-    //                var  id=1;
-    //         }
-    //         else{
-    //             var id  = Carray.length+1
-    //         }    
-    //    var value=this.value1
-    //     if(value!=undefined && value!==" "){
-    //         var commentvalue={
-    //             value: this.value1,
-    //             Name:this.CurrentUserName,
-    //             id:id,
-    //         }
-    //         console.log(commentvalue)
-    //         array.push(commentvalue)
-            
-    //         var exArray = JSON.parse(localStorage.getItem(this.get("parentid")));
-        
-    //         if(exArray==null){
-    //         localStorage.setItem(this.get("parentid"),JSON.stringify(array));
-    //         }
-    //         else if(exArray!=null)  {
-    //         var newArray = array.concat(exArray);
-    //         localStorage.setItem(this.get("parentid"),JSON.stringify(newArray));
-    //         }
-    //     }
-    //     this. array=JSON.parse(localStorage.getItem(this.get("parentid")))
-    //         console.log(this.array)
-
-    //         this.set("value1"," ")
-    //         this.set("boolean1", false);
-    //         this.set("boolean", true);
-            
+            }         
     },
     @action
     back(){
            this.set("boolean1", false);
             this.set("boolean", true);
     },
-
     @action
+    
     delete(deletecomment){
-
+        this.set("value2",false)
         this.store.peekRecord("postComments",deletecomment.id).destroyRecord().then(()=>{
-            location.reload()
-           })
-        // var id= event.target.id;
-
-
-       /* var id= event.target.id;
-        var userComend=JSON.parse(localStorage.getItem(this.get("parentid")));   
-        for (var i = 0; i < userComend.length; i++){
-            var obj = userComend[i];
-            var objId = obj.id;
-            // console.log(CurrentUserName)
-            if((objId == id && this.CurrentUserName==obj.Name)||(objId == id && this.CurrentUserName=="Admin") ){
-                userComend.splice(i, 1);
-                localStorage.removeItem(id);
-                localStorage.setItem(this.get("parentid"), JSON.stringify(userComend));
-                location.reload()
-               break;               
-           }
-            
                 
-        }*/
+            // this.set("boolean1", false);
+            // this.set("boolean", true);
+            this.init()
+           })
     }
        
 })

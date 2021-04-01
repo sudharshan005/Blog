@@ -1,11 +1,17 @@
 
 {{#if boolean1}}     
 <div class="fulldiv">
-         <div class="homeTittle">
+          <div class="homeTittle">
                  <div class="homeImage"></div>
-                 <LinkTo @route="index" class="image3"></LinkTo>
-                 <div class="image4"></div>
-                 <div class="image5"></div>
+                   <div class="homesearchIteam">
+                 <input type="text" placeholder="Search" class="search">
+                  <div class="searchBut" ></div>
+                  </div>
+                 <div class="homeIcons">
+                        <LinkTo @route="index" class="image3"></LinkTo>
+                        <div class="image4"></div>
+                        <div class="image5"></div>
+                </div>        
          </div>
         <div class="writebox">
                <div class="textTittles">Tittle</div>
@@ -14,7 +20,7 @@
                <Textarea class="textArea" @value={{value2}} placeholder="Enter a post Subject"></Textarea>
                 <div class="textTittles">Story</div>
                <Textarea class="textAreaStory" @value={{value3}} placeholder="Enter a post Story"></Textarea>
-               <Input type="file" class="textImage"/>
+               <Input type="file" class="textImage"   {{ on "change" image}}/>
               
         </div>
          <button class="dbutton" onclick={{action "editpost"}}>Done</button>

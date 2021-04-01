@@ -1,17 +1,40 @@
-<div class="topindex">
+{{!-- <div class="topindex">
     <div class="blognamebox"> Shan Blog </div>
     <LinkTo @route="adminpage" class="Abutton" id="Admin" >Admin</LinkTo>
     <div class="gbutton" id="Guest" onclick={{action "profileName"}}>Guest</div>
     <LinkTo @route="loginpage" class="Lbutton" >Login</LinkTo>
 
-</div>
-<div class="fulldiv2">  
-   
- <div  class="welcome" >Welcome  To  My  Blog</div>
+</div> --}}
+ <div class="fulldiv2">  
+    <div  class="welcome" >Welcome  To  My  Blog</div>
+    <div class="blogcontent">
+        <h1>Today web-</h1>
+        <h2>120+ UI User</h2>
+        <h2> interface Blocks</h2>
+        <h4>over 120 unique and amazing designed <br> interface blocks geouped,named and <br> layered into 14 most popular categories</h4>
+    </div>
+    <div class="indexbuttons">
+        <div class="Admin">
+            <div class="adminImage"></div>
+            <LinkTo @route="adminpage" class="Abutton" id="Admin" >Admin</LinkTo>
+        </div>
+        <div class="guest">
+              <div class="guestImage"></div>
+              <div class="gbutton" id="Guest" onclick={{action "profileName"}}>Guest</div>
+        </div>
+        <div class="login">
+              <div class="LoginImage"></div>
+               <LinkTo @route="loginpage" class="Lbutton" >Login</LinkTo>
+        </div>
+    </div>
 
-<div class="rightimage"></div>
+    <div class="indexrightimage"></div>
+    {{!-- <LinkTo @route="adminpage" class="Abutton" id="Admin" >Admin</LinkTo>
+    <div class="gbutton" id="Guest" onclick={{action "profileName"}}>Guest</div>
+    <LinkTo @route="loginpage" class="Lbutton" >Login</LinkTo> --}}
+{{!-- <div class="rightimage"></div>
 <div class="leftimage"></div>
 <div class="midleimage"></div> 
 <div class="image1"></div>
-<div class="image2"></div>
+<div class="image2"></div> --}}
 </div>

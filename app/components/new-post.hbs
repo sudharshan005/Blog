@@ -1,10 +1,16 @@
 <div class="fulldiv"> 
  <div class="homeTittle">
-                 <div class="homeImage"></div>
-                 <LinkTo @route="index" class="image3"></LinkTo>
-                 <div class="image4"></div>
-                 <div class="image5"></div>
- </div>
+                <div class="homeImage"></div>
+                <div class="homesearchIteam">
+                <input type="text" placeholder="Search" class="searchbar">
+                 <div class="searchBut" ></div>
+                </div>
+                <div class="homeIcons">
+                  <LinkTo @route="index" class="image3"></LinkTo>
+                  <div class="image4"></div>
+                  <div class="image5"></div>
+                </div>  
+         </div>
 <div class="writebox">
   <div class="newpostTitle">Tittle</div>
   <Textarea class="textArea" @value={{value1}} placeholder="Enter a post Tittle"></Textarea>
@@ -12,7 +18,7 @@
  <Textarea class="textArea" @value={{value2}} placeholder="Enter a post Subject"></Textarea>
 <div class="newpostTitle">Story</div> 
 <Textarea class="textAreaStory" @value={{value3}} placeholder="Enter a post Story"></Textarea>
-               <Input type="file" class="textImage"/>         
+  <Input type="file" class="textImage"  {{ on "change" image}}/>         
 </div>
          <div class="dbutton" onclick={{action "valuepass"  }}>Done</div>
           <LinkTo @route="homepage" class="backbutton4" >back</LinkTo>
